@@ -1,5 +1,4 @@
-<p>New Article</p>
-
+<h2>Edited article</h2>
 
 <% if @article.errors.any? %>
 <h2>Submission failed due to...</h2>
@@ -24,6 +23,5 @@
 <p>
 	<%= f.submit() %>
 </p>
-
 <%= link_to "<< Back",articles_path %>
 <% end %>
