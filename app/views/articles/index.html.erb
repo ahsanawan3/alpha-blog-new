@@ -3,16 +3,24 @@
 <p>
 <%= link_to "Create new Article", new_article_path %>
 </p>
-<table>
-	<tr>
+<div class="row container col-md-12">
+<table class="table-responsive table-striped">
+	<thead style="text-align:center;">
 		<th>Title</th>
 		<th>Description</th>
-	</tr>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Posted</th>
+		<th>Actions</th>
+	</thead>
 
 <% @articles.each do |article| %>
 <tr>
 	<td><%= article.title %></td>
 	<td><%= article.description %></td>
+	<td><%= article.user.username%></td>
+	<td><%= article.user.email %></td>
+	<td><%= time_ago_in_words(article.created_at) %></td>
 	<td><%= link_to "edit",edit_article_path(article) %></td>
 	<td><%= link_to "show",article_path(article) %></td>
 	<td><%= link_to "destroy", article_path(article), method: :delete, data:{confirm: "Delete Article..? "} %></td>
@@ -21,3 +29,4 @@
 <% end %>
 
 </table>
+</div>
